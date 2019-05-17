@@ -38,4 +38,9 @@ class Calculator
     {
         return $this->operation->evaluate($this->operands);
     }
+
+    public static function getCalculator()
+    {
+        return new self();
+    }
 }
