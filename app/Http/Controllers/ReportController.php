@@ -18,7 +18,7 @@ class ReportController extends Controller
     public function getDailyReport()
     {
         try {
-            return response()->json(array('data'=> LogActivity::getDailyReport()),201);
+            return response()->json(array('data'=> LogActivity::getDailyReport()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -30,7 +30,7 @@ class ReportController extends Controller
     public function getWeeklyReport()
     {
         try {
-            return response()->json(array('data'=> LogActivity::getWeeklyReport()),201);
+            return response()->json(array('data'=> LogActivity::getWeeklyReport()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -42,7 +42,7 @@ class ReportController extends Controller
     public function getMonthlyReport()
     {
         try {
-            return response()->json(array('data'=> LogActivity::getMonthlyReport()),201);
+            return response()->json(array('data'=> LogActivity::getMonthlyReport()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }

@@ -33,7 +33,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($add);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " + " . $operand2);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error".$e->getMessage(), 500);
         }
@@ -51,7 +51,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($subtract);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " - " . $operand2);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -69,7 +69,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($multiply);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " * " . $operand2);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -87,7 +87,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($divide);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " / " . $operand2);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -104,7 +104,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($squareRoot);
             $calculator->setOperands(array($operand));
             LogActivity::addToLog("Squareroot of " . $operand);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -121,7 +121,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($qubicRoot);
             $calculator->setOperands(array($operand));
             LogActivity::addToLog("Qubicroot of " . $operand);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -139,7 +139,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($power);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " ^ " . $operand2);
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
@@ -156,7 +156,7 @@ class CalculatorController extends Controller
             $calculator->setOperation($factorial);
             $calculator->setOperands(array($operand));
             LogActivity::addToLog($operand . "!");
-            return response()->json(array('output'=> $calculator->process()),201);
+            return response()->json(array('output'=> $calculator->process()),200);
         } catch (Exception $e) {
             return response()->json("Internal server error", 500);
         }
