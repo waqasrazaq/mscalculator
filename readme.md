@@ -35,17 +35,45 @@ https://github.com/waqasrazaq/mscalculator.git
 
 - Once the code is downloaded then navigate into project directory (mscalculator) and then enter into laradock
 ```
-cd mscalculator/laradock
+$ root@server:~/# cd mscalculator/laradock
 ```
 
 - Inside the laradock directory, execute the below command to create the laradock containers for mysql and nginx
 ```
-docker-compose up -d nginx mysql
+$ root@server:~/mscalculator/laradock# docker-compose up -d nginx mysql
 ```
-This will take some time (depending on your internet speed) to complete downloading and installing the container. On avaerga it take 15 minutes. In case, if it ends with error then run the same command again.
+This will take some time (depending on your internet speed). On average it takes 15 minutes. In case, if it ends with an error then run the same above command again.
 
-- Go to Your Workspace
+- Once the conatiners are up then go to your workspace
 ```
-docker-compose exec workspace bash
+$ root@server:~/mscalculator/laradock# docker-compose exec workspace bash
 ```
+
+- Till now development envoiremnt is ready, lets install the project code depedencies now
+```
+$ root@workspace:/var/www# composer install
+$ root@workspace:/var/www# cp .env.example .env
+$ root@workspace:/var/www# php artisan key:generate
+$ root@workspace:/var/www# exit
+$ root@server:~/mscalculator/laradock# cd ..
+$ root@server:~/mscalculator# sudo chmod -R 777 storage bootstrap/cache
+```
+
+- Next step is database configuration. Open .env file from root directory of the project and update the below connection information as per your dev environment
+
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=calculator
+DB_USERNAME=default
+DB_PASSWORD=secret
+```
+
+- Lastly, lets create the required tables in database. 
+```
+$ root@workspace:/var/www#php artisan migrate
+```
+
+Great! instalattion process is completed. If there's no error till now then you can access the project via hostname(IP or localhost, depending on your environment);
 
