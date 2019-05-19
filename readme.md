@@ -38,7 +38,7 @@ https://github.com/waqasrazaq/mscalculator.git
 $ root@server:~/# cd mscalculator/laradock
 ```
 
-- Inside the laradock directory, execute the below command to create the laradock containers for mysql and nginx
+- Inside the laradock directory, execute the below command to create the laradock containers for **mysql** and **nginx**
 ```
 $ root@server:~/mscalculator/laradock# docker-compose up -d nginx mysql
 ```
@@ -49,7 +49,7 @@ This will take some time (depending on your internet speed). On average it takes
 $ root@server:~/mscalculator/laradock# docker-compose exec workspace bash
 ```
 
-- Till now development envoiremnt is ready, lets install the project code depedencies now
+- Till now development environment is ready, lets install the project code depedencies
 ```
 $ root@workspace:/var/www# composer install
 $ root@workspace:/var/www# cp .env.example .env
@@ -75,5 +75,21 @@ DB_PASSWORD=secret
 $ root@workspace:/var/www#php artisan migrate
 ```
 
-Great! instalattion process is completed. If there's no error till now then you can access the project via hostname(IP or localhost, depending on your environment);
+Great, That's it. Installation process is completed. If there's no error till now then we're read access the project by simply typing the hostname (IP or localhost, depending on your environment) in the broswer.
+
+# Working Demo 
+Full functioning project is deployed on **Digitalocean** at below url
+[http://165.22.79.6/](http://165.22.79.6/)
+
+# Web API documentation (Output API end points)
+
+## Add Operation
+
+URL: http://hostname:port/api/calculator/add/{operand1}/{operand2}
+Example: [http://165.22.79.6/api/calculator/add/4/3](http://165.22.79.6/api/calculator/add/4/3)
+### Request
+HTTP Method: Get
+
+### Response
+Format is JSON. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
 
