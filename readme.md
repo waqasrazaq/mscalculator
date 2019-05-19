@@ -79,7 +79,9 @@ Great, That's it. Installation process is completed. If there's no error till no
 
 # Working Demo 
 Full functioning project is deployed on **Digitalocean** at below url
+
 [http://165.22.79.6/](http://165.22.79.6/)
+
 
 
 # Web API documentation (Output API end points)
@@ -104,7 +106,27 @@ Takes two operands and returns the result by subtracting second operand from the
 
 **URL** http://hostname:port/api/calculator/subtract/{operand1}/{operand2}
 
-**Working Example** [http://165.22.79.6/api/calculator/subtract/4/3](http://165.22.79.6/api/calculator/subtract/14/6)
+**Working Example** [http://165.22.79.6/api/calculator/subtract/14/6](http://165.22.79.6/api/calculator/subtract/14/6)
 
+## 3- Multiply Operation
+Takes two operands and returns the result by multiplying each other.
 
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of multiplication operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/multiply/{operand1}/{operand2}
+
+**Working Example** [http://165.22.79.6/api/calculator/multiply/4/3](http://165.22.79.6/api/calculator/multiply/4/3)
+
+## 4- Division Operation
+Takes two operands and returns the result by dividing first operand by the second operand.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of division operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/divide/{operand1}/{operand2}
+
+**Working Example** [http://165.22.79.6/api/calculator/divide/25/5](http://165.22.79.6/api/calculator/divide/25/5)
 
