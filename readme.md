@@ -85,12 +85,14 @@ Full functioning project is deployed on **Digitalocean** at below url
 # Web API documentation (Output API end points)
 
 ## Add Operation
+Takes two operand and returns the result by adding them.
+
+**Method** Get
+
+**Response** Format is JSON. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
 
 **URL** http://hostname:port/api/calculator/add/{operand1}/{operand2}
 
 **Working Example** [http://165.22.79.6/api/calculator/add/4/3](http://165.22.79.6/api/calculator/add/4/3)
 
-**Method** Get
-
-**Response** Format is JSON. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
 
