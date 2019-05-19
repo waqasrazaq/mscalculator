@@ -38,9 +38,9 @@
 
         <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
             <v-card>
-                <v-toolbar dark color="primary">
+                <v-toolbar dark color="indigo">
 
-                    <v-toolbar-title>Settings</v-toolbar-title>
+                    <v-toolbar-title>Performed Operations</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-btn icon dark @click="dialog = false">
                         <v-icon>close</v-icon>

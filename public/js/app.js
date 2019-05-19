@@ -70857,9 +70857,9 @@ var render = function() {
             [
               _c(
                 "v-toolbar",
-                { attrs: { dark: "", color: "primary" } },
+                { attrs: { dark: "", color: "indigo" } },
                 [
-                  _c("v-toolbar-title", [_vm._v("Settings")]),
+                  _c("v-toolbar-title", [_vm._v("Performed Operations")]),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
