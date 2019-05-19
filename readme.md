@@ -84,15 +84,27 @@ Full functioning project is deployed on **Digitalocean** at below url
 
 # Web API documentation (Output API end points)
 
-## Add Operation
-Takes two operand and returns the result by adding them.
+## 1- Add Operation
+Takes two operands and returns the result by adding both operands.
 
 **Method** Get
 
-**Response** Format is JSON. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
 
 **URL** http://hostname:port/api/calculator/add/{operand1}/{operand2}
 
 **Working Example** [http://165.22.79.6/api/calculator/add/4/3](http://165.22.79.6/api/calculator/add/4/3)
+
+## 2- Subtract Operation
+Takes two operands and returns the result by subtracting second operand from the firt operand.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of subtract operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/subtract/{operand1}/{operand2}
+
+**Working Example** [http://165.22.79.6/api/calculator/subtract/4/3](http://165.22.79.6/api/calculator/subtract/14/6)
+
 
 
