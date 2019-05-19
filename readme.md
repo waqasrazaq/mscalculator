@@ -1,52 +1,95 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Problem description
+Develop a calculator for Megasoft, a company that is working on developing a mega web-based operating system for personal computers. Following should be the main features of calculator
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+* Perform basic calculations (add, subtract, multiple, divide).
+* Perform square root, qubic root, power and factorial calculations.
+* A report has to be pulled out daily/weekly/monthly basis showing the operations that have been performed during that time period.
+* The calculator will be triggered by developers via an API.
+* The calculator will be triggered by end users through a web page
 
-## About Laravel
+## Technologies used
+* PHP 7
+* Laravel Framework 5.4
+* VueJS 2 (with Vuetify)
+* Docker (Used Laradock. A full PHP development environment for Docker)
+* Composer as package manager
+* Mysql 5.7
+* NGINX
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Installation 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Prerequisites
 
-## Learning Laravel
+Make sure that **Docker** and **Git** is already installed on the system. If not then follow the instructions to download and install these dependencies from the below links
+* [Docker](https://www.docker.com/)
+* [Git](https://git-scm.com/downloads)
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## Steps required to install/run the application
+The installation process is quite simple and straightforward. Just follow the below steps
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+- Open the terminal and navigate into the desired project directory and then execute the below command to download the code from github
+```
+https://github.com/waqasrazaq/mscalculator.git
+```
 
-## Laravel Sponsors
+- Once the code is downloaded then navigate into project directory (mscalculator) and then enter into laradock
+```
+$ root@server:~/# cd mscalculator/laradock
+```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+- Inside the laradock directory, execute the below command to create the laradock containers for **mysql** and **nginx**
+```
+$ root@server:~/mscalculator/laradock# docker-compose up -d nginx mysql
+```
+This will take some time (depending on your internet speed). On average it takes 15 minutes. In case, if it ends with an error then run the same above command again.
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
+- Once the conatiners are up then go to your workspace
+```
+$ root@server:~/mscalculator/laradock# docker-compose exec workspace bash
+```
 
-## Contributing
+- Till now development environment is ready, lets install the project code depedencies
+```
+$ root@workspace:/var/www# composer install
+$ root@workspace:/var/www# cp .env.example .env
+$ root@workspace:/var/www# php artisan key:generate
+$ root@workspace:/var/www# exit
+$ root@server:~/mscalculator/laradock# cd ..
+$ root@server:~/mscalculator# sudo chmod -R 777 storage bootstrap/cache
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+- Next step is database configuration. Open .env file from root directory of the project and update the below connection information as per your dev environment
 
-## Security Vulnerabilities
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=calculator
+DB_USERNAME=default
+DB_PASSWORD=secret
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- Lastly, lets create the required tables in database. 
+```
+$ root@workspace:/var/www#php artisan migrate
+```
 
-## License
+Great, That's it. Installation process is completed. If there's no error till now then we're read access the project by simply typing the hostname (IP or localhost, depending on your environment) in the broswer.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-# mscalculator
+# Working Demo 
+Full functioning project is deployed on **Digitalocean** at below url
+[http://165.22.79.6/](http://165.22.79.6/)
+
+# Web API documentation (Output API end points)
+
+## Add Operation
+
+URL: http://hostname:port/api/calculator/add/{operand1}/{operand2}
+Example: [http://165.22.79.6/api/calculator/add/4/3](http://165.22.79.6/api/calculator/add/4/3)
+### Request
+HTTP Method: Get
+
+### Response
+Format is JSON. For valid response, HTTP status code 200 with the result of add operation in output variable and status code 500 in case any error on the server.
+
