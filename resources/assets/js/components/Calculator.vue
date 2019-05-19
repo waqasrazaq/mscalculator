@@ -1,27 +1,18 @@
 <template>
-    <v-card class="grey lighten-4 elevation-0">
-        <v-container fluid>
-            <v-layout row>
-                <v-layout row-sm column>
-                    <v-card class="primary ma-1 green lighten-2 text-xs-center">
 
-                        <div class='display'>{{this.calc.display}}</div>
-
-                        <table>
-                            <tr v-for="(row) in this.calc.buttons">
-                                <td v-for="(bt) in row" v-bind:style="{ padding: '0px'}">
-                                    <v-btn type="button"  large v-bind:class=bt.type @click.native=bt.callback>
-                                        {{bt.label}}
-                                    </v-btn>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </v-card>
-                </v-layout>
-            </v-layout>
-        </v-container>
+    <v-card class="primary ma-1 green lighten-2 text-xs-center">
+        <div class='display'>{{this.calc.display}}</div>
+        <table>
+            <tr v-for="(row) in this.calc.buttons">
+                <td v-for="(bt) in row" v-bind:style="{ padding: '0px'}">
+                    <v-btn type="button"  large v-bind:class=bt.type @click.native=bt.callback>
+                        {{bt.label}}
+                    </v-btn>
+                </td>
+            </tr>
+        </table>
     </v-card>
+
 </template>
 
 <script>

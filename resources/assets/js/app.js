@@ -22,8 +22,7 @@ Vue.use(Vuetify)
 
 Vue.component('applayout', require('./components/AppLayout.vue'));
 Vue.component('calculator', require('./components/Calculator.vue'));
-
-
+Vue.component('report', require('./components/Report.vue'));
 
 const app = new Vue({
     el: '#app'

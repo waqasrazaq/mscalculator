@@ -25,3 +25,7 @@ Route::get('calculator/squareroot/{operand}', 'CalculatorController@squareRoot')
 Route::get('calculator/qubicroot/{operand}', 'CalculatorController@qubicRoot');
 Route::get('calculator/power/{operand1}/{operand2}', 'CalculatorController@power');
 Route::get('calculator/factorial/{operand1}', 'CalculatorController@factorial');
+Route::get('calculator/factorial/{operand1}', 'CalculatorController@factorial');
+Route::get('calculator/report/daily', 'ReportController@getDailyReport');
+Route::get('calculator/report/weekly', 'ReportController@getWeeklyReport');
+Route::get('calculator/report/monthly', 'ReportController@getMonthlyReport');
