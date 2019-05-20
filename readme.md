@@ -211,3 +211,17 @@ To get the operations activity performed in current month only. Take one paramet
 
 **Working Example** [http://165.22.79.6/api/calculator/report/monthly](http://165.22.79.6/api/calculator/report/monthly)
 
+# High level introduction to the project and files structure
+Although the information below on the application structure is very brief, at least it gives a starting point for the developers to work on the project
+
+* routes/api.php - Contains the RESTful api routes
+* routes/web.php - Contains the routes for normal web page access
+* app/libs/calculator - Contains all the busniess logic (**interfaces and classes**) required for Calculator module.
+* app/Http/Controllers - Contains all the controllers for the application. There's a file **CalculatorController.php** and **ReportController.php** inside it which controls all the requests coming from end points
+* app/Helpers/LogActivity.php, is a helper which uses Log model to save oeprations and also conatins functions to retrive report data
+* database/migrations - Contains the tables **schema** and migration related code
+* resources/views - Contains our single view **home.blade.php** for the web page. It mainly uses VueJS for the frontend part.
+* resources/assets/js/app - Contains VueJS related code. **app.js** initalizes the vue app and **components** directory contains all the components created for this application.
+* vendor - Contains all the composer dependencies
+
+For more details on the overall files structure of the laravel project, follow this docs https://laravel.com/docs/ link.
