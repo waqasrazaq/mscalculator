@@ -30,7 +30,7 @@ The installation process is quite simple and straightforward. Just follow the be
 
 - Open the terminal and navigate into the desired project directory and then execute the below command to download the code from github
 ```
-https://github.com/waqasrazaq/mscalculator.git
+git clone https://github.com/waqasrazaq/mscalculator.git
 ```
 
 - Once the code is downloaded then navigate into project directory (mscalculator) and then enter into laradock
