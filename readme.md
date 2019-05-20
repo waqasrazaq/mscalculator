@@ -174,3 +174,40 @@ Takes one operand and returns its factorial.
 
 **Working Example** [http://165.22.79.6/api/calculator/factorial/5](http://165.22.79.6/api/calculator/factorial/5)
 
+
+
+## 9- Get daily report 
+To get the operations activity performed today only (starting today midnight). Take one parameter **daily** of type string. 
+
+**Method** Get
+
+**Response** A JSON object with the list of operations perforemd. Each item will have attributes like "activity", "created-at", "ip" and "agent". For valid response status code 200 and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/report/{daily}
+
+**Working Example** [http://165.22.79.6/api/calculator/report/daily](http://165.22.79.6/api/calculator/report/daily)
+
+
+## 10- Get weekly report
+To get the operations activity performed this week only. Take one parameter **weekly** 
+
+**Method** Get
+
+**Response** A JSON object with the list of operations perforemd. Each item will have attributes like "activity", "created-at", "ip" and "agent". For valid response status code 200 and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/report/{weekly}
+
+**Working Example** [http://165.22.79.6/api/calculator/report/weekly](http://165.22.79.6/api/calculator/report/weekly)
+
+
+## 11- Get monthly report 
+To get the operations activity performed in current month only. Take one parameter of type string **monthly** 
+
+**Method** Get
+
+**Response** A JSON object with the list of operations perforemd. Each item will have attributes like "activity", "created-at", "ip" and "agent". For valid response status code 200 and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/report/{monthly}
+
+**Working Example** [http://165.22.79.6/api/calculator/report/monthly](http://165.22.79.6/api/calculator/report/monthly)
+
