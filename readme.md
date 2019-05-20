@@ -222,6 +222,10 @@ Although the information below on the application structure is very brief, at le
 * database/migrations - Contains the tables **schema** and migration related code
 * resources/views - Contains our single view **home.blade.php** for the web page. It mainly uses VueJS for the frontend part.
 * resources/assets/js/app - Contains VueJS related code. **app.js** initalizes the vue app and **components** directory contains all the components created for this application.
+* laradock - Along with other modules Laradock also contains the configuration files **.env** and **docker-compose.yml** for Docker.
 * vendor - Contains all the composer dependencies
 
 For more details on the overall files structure of the laravel project, follow this docs https://laravel.com/docs/ link.
+
+## Note
+Major focus is given to application architecture and development environment. UI/UX part is quite basic which can be easily implemented based on the required design. Due to time limit, current report API,s are intenionally very basic which can be enhanced more by adding more cabaility of handling dates ranges etc.
