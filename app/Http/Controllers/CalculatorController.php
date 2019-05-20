@@ -84,6 +84,8 @@ class CalculatorController extends Controller
      */
     public function divide(Calculator $calculator, Divide $divide, $operand1, $operand2) {
         try {
+            if($operand2==0)
+                return response()->json("Cannot divide by Zero", 400);
             $calculator->setOperation($divide);
             $calculator->setOperands(array($operand1, $operand2));
             LogActivity::addToLog($operand1 . " / " . $operand2);
