@@ -86,7 +86,7 @@ Full functioning project is deployed on **Digitalocean** at below url
 
 # Web API documentation (Output API end points)
 
-## 1- Add Operation
+## 1- Add operation (a+b)
 Takes two operands and returns the result by adding both operands.
 
 **Method** Get
@@ -97,7 +97,7 @@ Takes two operands and returns the result by adding both operands.
 
 **Working Example** [http://165.22.79.6/api/calculator/add/4/3](http://165.22.79.6/api/calculator/add/4/3)
 
-## 2- Subtract Operation
+## 2- Subtract operation (a-b)
 Takes two operands and returns the result by subtracting second operand from the firt operand.
 
 **Method** Get
@@ -108,7 +108,7 @@ Takes two operands and returns the result by subtracting second operand from the
 
 **Working Example** [http://165.22.79.6/api/calculator/subtract/14/6](http://165.22.79.6/api/calculator/subtract/14/6)
 
-## 3- Multiply Operation
+## 3- Multiply operation (a*b)
 Takes two operands and returns the result by multiplying each other.
 
 **Method** Get
@@ -119,7 +119,7 @@ Takes two operands and returns the result by multiplying each other.
 
 **Working Example** [http://165.22.79.6/api/calculator/multiply/4/3](http://165.22.79.6/api/calculator/multiply/4/3)
 
-## 4- Division Operation
+## 4- Division Operation (a/b)
 Takes two operands and returns the result by dividing first operand by the second operand.
 
 **Method** Get
@@ -129,4 +129,48 @@ Takes two operands and returns the result by dividing first operand by the secon
 **URL** http://hostname:port/api/calculator/divide/{operand1}/{operand2}
 
 **Working Example** [http://165.22.79.6/api/calculator/divide/25/5](http://165.22.79.6/api/calculator/divide/25/5)
+
+## 5- Square root Operation (√a)
+Takes one operand and returns the square root of that operand.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of square root operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/squareroot/{operand}/
+
+**Working Example** [http://165.22.79.6/api/calculator/squareroot/81](http://165.22.79.6/api/calculator/squareroot/81)
+
+## 6- Qubic root operation (3√a)
+Takes one operands and returns the qubic root of that operand.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of qubic root operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/qubicroot/{operand}/
+
+**Working Example** [http://165.22.79.6/api/calculator/qubicroot/8](http://165.22.79.6/api/calculator/qubicroot/8)
+
+## 7- Power Operation (a^b)
+Takes two operands and returns the result by taking power of first operand with second operand.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of power operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/power/{operand1}/{operand2}
+
+**Working Example** [http://165.22.79.6/api/calculator/power/4/3](http://165.22.79.6/api/calculator/power/4/3)
+
+## 8- Factorial operation (a!)
+Takes one operand and returns its factorial.
+
+**Method** Get
+
+**Response** Response format is JSON object. For valid response, HTTP status code 200 with the result of factorial operation in **output** variable and status code 500 in case any error on the server.
+
+**URL** http://hostname:port/api/calculator/factorial/{operand}
+
+**Working Example** [http://165.22.79.6/api/calculator/factorial/5](http://165.22.79.6/api/calculator/factorial/5)
 
